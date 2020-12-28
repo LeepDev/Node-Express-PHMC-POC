@@ -256,7 +256,7 @@ router.post('/:article/comments', auth.required, function(req, res, next) {
     return comment.save().then(function(){
       req.article.comments.push(comment);
 
-      return req.article.save().then(function(article) {
+      return req.article.save().then(function() {
         res.json({comment: comment.toJSONFor(user)});
       });
     });
